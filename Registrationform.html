@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+            integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        .subject{
+            width: 250px;
+            height: 30px;
+            background-color: transparent;
+            color: white;
+        }
+        .concept{
+            width: 250px;
+            height: 30px;
+            background-color: transparent;
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+    <form name="Registration" action="">
+
+    <h1>Registration</h1>
+    <div>
+        <i class="fas fa-book" style="padding: 10px;"><span class="req">*</span></i>
+            <input type="text" class="subject" name="subject" placeholder="Subject" required>
+            <br><br>
+    </div>
+
+    <div>
+        <i class="fas fa-book-open" style="padding: 10px;"><span class="req">*</span></i>
+        <input type="text" name="concept" class="concept" 
+        placeholder="Concept" required><br><br>
+    </div><br>
+
+    <input type="submit" name="submit" id="submit" value="Submit">
+    <input type="reset" name="reset" class="reset" value="Reset"><br><br>
+    </form>  
+</body>
+</html>
