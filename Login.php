@@ -15,7 +15,7 @@ require 'configuration.php';
     </head>
     <body>
         <div>
-        <form action="" method="POST">
+        <form action="" method="post">
             <img src="./project images/Loginicon.png" alt="" width="70" height="70" 
             id="image"><br><br>
             <!--<label for="loginid">Username : </label>-->
