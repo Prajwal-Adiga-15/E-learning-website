@@ -50,7 +50,7 @@ require 'configuration.php';
 </head>
 
 <body>
-    <form name="signup" action="" method="post">
+    <form name="signup" action="" method="Post">
 
         <h1>Sign Up</h1>
         <div>
@@ -75,7 +75,7 @@ require 'configuration.php';
             </div>-->
         <div>
             <i class="fas fa-phone" style="padding: 10px;"><span class="req">*</span></i><input type="tel" name="tel"
-                pattern="[0-9]" id="phnumber" maxlength="10" title="Enter 10 Digit Ph no" placeholder="Phone Number"
+                pattern="[0-9]{10}" id="phnumber"  title="Enter 10 Digit Ph no" placeholder="Phone Number"
                 required><br><br>
         </div>
         <div>
@@ -96,60 +96,60 @@ require 'configuration.php';
     </form>
 
     <?php 
-                     if(isset($_POST['submit']))
-                      {
+         if(isset($_POST['submit']))
+            {
                       
-                      $firstname = $_POST['firstname']
-                      $lastname = $_POST['lastname'] 
-                      $dob=date("Y-m-d");
-                      $tel = $_POST['tel'];
-                      $loginid = $_POST['loginid'];
-                      $password = $_POST['password'];
-                      $confirmpassword = $_POST['confirmpassword'];
+               $firstname = $_POST['firstname'];
+               $lastname = $_POST['lastname'];
+               $dob=$_POST["dob"];
+               $tel = $_POST['tel'];
+               $loginid = $_POST['loginid'];
+               $password = $_POST['password'];
+               $confirmpassword = $_POST['confirmpassword'];
                       
                       
-                      if($password==$confirmpassword)
-                      {
+                if($password==$confirmpassword)
+                 {
                         
-                          $query = "select * from user WHERE tel=$tel";
-                          $query_run = mysqli_query($con,$query);
+                  $query = "select * from users WHERE loginid = $loginid";
+                  $query_run = mysqli_query($con,$query);
                         
-                          if(mysqli_num_rows($query_run)>0)
-                          {
-                            echo '<script type="text/javascript"> alert("number already registered...") </script>';
-                          }
+                  if(mysqli_num_rows($query_run)>0)
+                  {
+                    echo '<script type="text/javascript"> alert("number already registered...") </script>';
+                  }
                           
-                          else
-                          {
-                                $query= "insert into user(firstname,lastname,dob,tel,loginid,password) values('$firstname','$lastname','$dob','$tel','$loginid','$password')";
-                                $query_run = mysqli_query($con,$query);
+                  else
+                  {
+                     $query= "insert into users(firstname,lastname,dob,tel,loginid,password) values('$firstname','$lastname','$dob','$tel','$loginid','$password')";
+                     $query_run = mysqli_query($con,$query);
 
-                                if($query_run)
-                                {
-                                    echo '<script type="text/javascript"> alert("User Registered.. Go to login page to login") </script>';
-                                    echo '<script>window.location.href="Login.php"</script>';
+                     if($query_run)
+                     {
+                         echo '<script type="text/javascript"> alert("User Registered.. Go to login page to login") </script>';
+                        echo '<script>window.location.href="Login.php"</script>';
                                     
-                                }
-                                else
-                                {
-                                    echo '<script type="text/javascript"> alert("Errorrrrr") </script>' .mysqli_error($con);
-                                }
-                          }
-                        }
+                     }
+                     else
+                    {
+                         echo '<script type="text/javascript"> alert("Errorrrrr") </script>' .mysqli_error($con);
+                    }
+                   }
+                }
                         
 
                       
                       
-                      else
-                      {
-                        echo '<script type="text/javascript"> alert("Password and Confirm password doesnot match") </script>';
-                      }
+                else
+                {
+                    echo '<script type="text/javascript"> alert("Password and Confirm password doesnot match") </script>';
+                }
 
-                      }
+            }
                       
 
 
-                    ?>
+        ?>
 
 </body>
 <script>

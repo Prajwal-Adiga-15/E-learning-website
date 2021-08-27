@@ -43,9 +43,9 @@ require 'configuration.php';
        <?php
              if(isset($_POST['submit']))
              {
-                 $loginid=$_POST['loginid']
+                 $loginid=$_POST['loginid'];
                  $password=$_POST['password'];
-                 $query = "select * from ulogin WHERE loginid = '$loginid' AND password = '$password'";
+                 $query = "select * from users WHERE loginid = '$loginid' AND password = '$password'";
                  $query_run = mysqli_query($con,$query);
                  if(mysqli_num_rows($query_run)>0)
                  {
